@@ -1,0 +1,861 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asgaard Sofa - Siêu đẹp và hiện đại</title>
+    <!-- Import Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    <style>
+ 
+        :root {
+        --primary-color: #d4af37;
+        --secondary-color: #333;
+        --light-bg: #f8f1e9;
+        --text-color: #333;
+        --accent-color: #9c77ff;
+        --shadow-color: rgba(0,0,0,0.15);
+        }
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+        }
+        body {
+        background: linear-gradient(135deg, #ffffff, #f7f2e9);
+        color: var(--text-color);
+        opacity: 0;
+        animation: fadeInPage 1s forwards;
+        }
+        @keyframes fadeInPage {
+        to { opacity: 1; }
+        }
+        
+
+        .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        animation: slideDown 0.8s ease-out forwards;
+        }
+        @keyframes slideDown {
+        from { transform: translateY(-20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+        }
+        .logo {
+        font-size: 26px;
+        font-weight: 600;
+        color: var(--secondary-color);
+        }
+        .nav-menu a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: var(--secondary-color);
+        transition: color 0.3s, transform 0.3s, text-shadow 0.3s;
+        }
+        .nav-menu a:hover {
+        color: var(--primary-color);
+        transform: translateY(-3px);
+        text-shadow: 0 2px 4px rgba(212,175,55,0.5);
+        }
+        .icons a {
+        margin: 0 10px;
+        transition: transform 0.3s, filter 0.3s;
+        }
+        .icons a:hover {
+        transform: scale(1.15);
+        filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 20px;
+        animation: fadeInContent 1s ease-in-out;
+        }
+        @keyframes fadeInContent {
+        from { opacity: 0; }
+        to { opacity: 1; }
+        }
+        
+
+        .product-detail {
+        display: flex;
+        gap: 40px;
+        padding: 40px 0;
+        }
+        .product-images {
+        display: flex;
+        gap: 20px;
+        animation: fadeSlideIn 1s ease-out;
+        }
+        @keyframes fadeSlideIn {
+        from { opacity: 0; transform: translateX(-20px); }
+        to { opacity: 1; transform: translateX(0); }
+        }
+        .product-thumbnails {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        }
+        .thumbnail-wrapper,
+        .main-image-wrapper {
+        background: var(--light-bg);
+        padding: 10px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        }
+        .product-thumbnails img {
+        width: 60px;
+        height: 60px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .product-thumbnails img:hover {
+        transform: scale(1.25);
+        box-shadow: 0 6px 12px var(--shadow-color);
+        }
+        .main-image-wrapper {
+        width: 420px;
+        height: 420px;
+        overflow: hidden;
+        position: relative;
+        }
+        .main-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .main-image.fade-out {
+        opacity: 0;
+        transform: scale(0.95);
+        }
+        
+
+        .product-info {
+        max-width: 500px;
+        animation: fadeSlideIn 1s ease-out;
+        }
+        .product-info h1 {
+        font-size: 32px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        letter-spacing: 0.5px;
+        animation: textFadeIn 1.2s forwards;
+        }
+        @keyframes textFadeIn {
+        from { opacity: 0; transform: translateY(5px); }
+        to { opacity: 1; transform: translateY(0); }
+        }
+        .product-info .price {
+        font-size: 24px;
+        color: #aaa;
+        margin-bottom: 20px;
+        }
+        .rating {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        }
+        .rating .stars {
+        color: #FFD700;
+        font-size: 20px;
+        margin-right: 10px;
+        }
+        .product-description {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 20px;
+        line-height: 1.6;
+        animation: fadeInText 1s ease-out;
+        }
+        @keyframes fadeInText {
+        from { opacity: 0; }
+        to { opacity: 1; }
+        }
+
+        .product-options {
+        margin-bottom: 20px;
+        }
+        .product-options .label {
+        font-size: 14px;
+        color: var(--secondary-color);
+        margin-bottom: 5px;
+        }
+        .size-options,
+        .color-options {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+        }
+        .size-options span,
+        .color-options .color-option {
+        display: inline-block;
+        padding: 8px 12px;
+        font-size: 14px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+        .size-options span:hover,
+        .color-options .color-option:hover {
+        transform: scale(1.1);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .size-options span.selected,
+        .color-options .color-option.selected {
+        border: 2px solid var(--primary-color);
+        transform: scale(1.15);
+        box-shadow: 0 4px 12px rgba(212,175,55,0.3);
+        }
+        .color-option {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        }
+        .color-option.purple { background-color: var(--accent-color); }
+        .color-option.black { background-color: var(--secondary-color); }
+        .color-option.gold { background-color: var(--primary-color); }
+        
+
+        .cart-actions {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 20px;
+        animation: popIn 0.6s ease-out;
+        }
+        @keyframes popIn {
+        from { transform: scale(0.95); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+        }
+        .quantity-selector {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid var(--secondary-color);
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: box-shadow 0.3s;
+        }
+        .quantity-selector:hover {
+        box-shadow: 0 2px 6px var(--shadow-color);
+        }
+        .quantity-selector button {
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        }
+        .quantity-selector span {
+        transition: transform 0.3s;
+        }
+        .quantity-selector span.changed {
+        animation: scaleBounce 0.3s;
+        }
+        @keyframes scaleBounce {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+        }
+        .add-to-cart,
+        .compare {
+        padding: 10px 20px;
+        border: 1px solid var(--secondary-color);
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        background-color: #fff;
+        font-weight: 600;
+        transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+        .add-to-cart:hover,
+        .compare:hover {
+        background-color: #f5f5f5;
+        transform: scale(1.03);
+        box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+        .product-meta {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.8;
+        margin-top: 20px;
+        animation: fadeInContent 1s ease-in-out;
+        }
+        .social-icons {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+        }
+        .social-icons a {
+        font-size: 20px;
+        transition: transform 0.3s;
+        }
+        .social-icons a:hover {
+        transform: scale(1.15);
+        }
+        
+        .divider {
+        border-top: 1px solid #ddd;
+        margin-top: 20px;
+        }
+  
+        .product-tabs-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        }
+        .product-tabs {
+        max-width: 800px;
+        width: 100%;
+        padding: 40px;
+        border-top: 1px solid #ddd;
+        animation: fadeInTabs 0.8s ease-in-out;
+        }
+        @keyframes fadeInTabs {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+        }
+        .tab-menu {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        }
+        .tab {
+        cursor: pointer;
+        color: #666;
+        transition: color 0.3s, transform 0.3s;
+        }
+        .tab:hover {
+        transform: translateY(-3px);
+        }
+        .tab.active {
+        color: var(--secondary-color);
+        border-bottom: 2px solid var(--secondary-color);
+        padding-bottom: 5px;
+        }
+        .tab-content {
+        font-size: 16px;
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        }
+        .tab-content p {
+        margin-bottom: 15px;
+        }
+        .tab-images {
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+        }
+        .image-container {
+        flex: 1;
+        background: var(--light-bg);
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .image-container:hover {
+        transform: scale(1.04);
+        box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+        .image-container img {
+        max-width: 100%;
+        border-radius: 10px;
+        }
+        
+   
+        .related-products {
+        text-align: center;
+        padding: 40px 20px;
+        animation: fadeInRelated 1s ease-in-out;
+        }
+        @keyframes fadeInRelated {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+        }
+        .related-products h2 {
+        font-size: 24px;
+        margin-bottom: 30px;
+        }
+        .product-list {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        }
+        .product-card {
+        background: #f8f8f8;
+        width: 250px;
+        border-radius: 10px;
+        overflow: hidden;
+        text-align: left;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .product-card:hover {
+        transform: rotateY(3deg) translateY(-8px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .product-image {
+        position: relative;
+        }
+        .product-image img {
+        width: 100%;
+        transition: transform 0.3s;
+        }
+        .product-image img:hover {
+        transform: scale(1.05);
+        }
+        .discount-tag,
+        .new-tag {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #f76c6c;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 50%;
+        font-size: 14px;
+        animation: popTag 1s infinite;
+        }
+        @keyframes popTag {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.15); }
+        }
+        .new-tag { background: #4caf50; }
+        .product-info h3 {
+        font-size: 18px;
+        margin-bottom: 5px;
+        font-weight: 600;
+        }
+        .product-info p {
+        font-size: 14px;
+        margin-bottom: 10px;
+        color: #666;
+        }
+        .price {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--secondary-color);
+        }
+        .original-price {
+        text-decoration: line-through;
+        color: #aaa;
+        font-size: 14px;
+        margin-left: 10px;
+        }
+        .show-more {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #b88f30;
+        background: transparent;
+        border: 1px solid #b88f30;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background 0.3s, transform 0.3s;
+        }
+        .show-more:hover {
+        background: #f5f5f5;
+        transform: scale(1.02);
+        }
+
+        .footer-bottom {
+        background: #fff;
+        padding: 30px 20px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+        }
+        .footer-section {
+        flex: 1 1 200px;
+        }
+        .footer-section h3 {
+        font-size: 1.2rem;
+        color: var(--secondary-color);
+        margin-bottom: 10px;
+        }
+        .footer-section ul {
+        list-style: none;
+        }
+        .footer-section ul li {
+        margin: 8px 0;
+        color: #555;
+        }
+        .newsletter input[type="email"] {
+        padding: 8px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        transition: border 0.3s, box-shadow 0.3s;
+        }
+        .newsletter input[type="email"]:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 5px rgba(212,175,55,0.5);
+        outline: none;
+        }
+        .newsletter button {
+        padding: 8px 16px;
+        border: none;
+        background: var(--secondary-color);
+        color: #fff;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s;
+        }
+        .newsletter button:hover {
+        background: #333;
+        }
+        .footer-bottom .footer-info {
+        color: #777;
+        font-size: 0.9rem;
+        text-align: center;
+        width: 100%;
+        margin-top: 20px;
+        border-top: 1px solid #ddd;
+        padding-top: 10px;
+        }
+    </style>
+    </head>
+    <body>
+
+    <header class="header">
+        <div class="logo">
+        <a href="TrangChu.html">
+            <img src="https://furniture-ecommerce-store.netlify.app/assets/logo-c6f6126c.svg" alt="Furniro Logo" class="logo-image">
+        </a>
+        </div>
+        <nav class="nav-menu">
+        <a href="#">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        </nav>
+        <div class="icons">
+        <a href="#"><img src="https://furniture-ecommerce-store.netlify.app/images/home.svg" alt="User" class="icon-image"></a>
+        <a href="#"><img src="https://furniture-ecommerce-store.netlify.app/images/shop.png" alt="Search" class="icon-image"></a>
+        <a href="#"><img src="https://furniture-ecommerce-store.netlify.app/images/cart-original.svg" alt="Wishlist" class="icon-image"></a>
+        <a href="#"><img src="https://furniture-ecommerce-store.netlify.app/assets/heart-e3a08317.svg" alt="Cart" class="icon-image"></a>
+        </div>
+    </header>
+
+    <div class="divider"></div>
+
+    <div class="container">
+
+        <div class="product-detail">
+        <div class="product-images">
+            <div class="product-thumbnails">
+            <div class="thumbnail-wrapper">
+                <img src="https://furniture-ecommerce-store.netlify.app/images/granite-square-side-table-1.png" alt="Thumbnail 1">
+            </div>
+            <div class="thumbnail-wrapper">
+                <img src="https://furniture-ecommerce-store.netlify.app/images/cloud-sofa-three-seater-ottoman-31.png" alt="Thumbnail 2">
+            </div>
+            <div class="thumbnail-wrapper">
+                <img src="https://furniture-ecommerce-store.netlify.app/images/asgaard-sofa-big-1.png" alt="Thumbnail 3">
+            </div>
+            <div class="thumbnail-wrapper">
+                <img src="https://furniture-ecommerce-store.netlify.app/images/granite-dining-table-with-dining-chair.png" alt="Thumbnail 4">
+            </div>
+            </div>
+            <div class="main-image-wrapper">
+            <img src="https://furniture-ecommerce-store.netlify.app/images/trenton-modular-sofa.png" alt="Main Sofa Image" class="main-image">
+            </div>
+        </div>
+        <div class="product-info">
+            <h1>Asgaard sofa</h1>
+            <p class="price">25.000.000đ</p>
+            <div class="rating">
+            <div class="stars">★★★★★</div>
+            <span>| 5 Customer Review</span>
+            </div>
+            <p class="product-description">
+            Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with well-balanced audio and clear midrange.
+            </p>
+  
+            <div class="product-options">
+            <div class="label">Size</div>
+            <div class="size-options">
+                <span data-size="L" style="background-color: var(--primary-color); color: #fff;">L</span>
+                <span data-size="XL">XL</span>
+                <span data-size="XS">XS</span>
+            </div>
+            <div class="label">Color</div>
+            <div class="color-options">
+                <div class="color-option purple" data-color="purple"></div>
+                <div class="color-option black" data-color="black"></div>
+                <div class="color-option gold" data-color="gold"></div>
+            </div>
+            </div>
+
+            <div class="cart-actions">
+            <div class="quantity-selector">
+                <button class="minus">-</button>
+                <span class="quantity">1</span>
+                <button class="plus">+</button>
+            </div>
+            <button class="add-to-cart">Add To Cart</button>
+            <button class="compare">+ Compare</button>
+            </div>
+            <div class="divider"></div>
+            <div class="product-meta">
+            <p>SKU : SS001</p>
+            <p>Category : Sofas</p>
+            <p>Tags : Sofa, Chair, Home, Shop</p>
+            </div>
+        </div>
+        </div>
+        <div class="divider"></div>
+        
+   
+        <div class="product-tabs-container">
+        <div class="product-tabs">
+            <div class="tab-menu">
+            <span class="tab active">Description</span>
+            <span class="tab">Additional Information</span>
+            <span class="tab">Reviews [5]</span>
+            </div>
+            <div class="tab-content">
+            <p>
+                Embodying the raw, wayward spirit of rock ‘n’ roll, the Kilburn portable active stereo speaker takes the unmistakable look and sound of Marshall.
+            </p>
+            <p>
+                Weighing in under 7 pounds, the Kilburn is a lightweight piece of vintage styled engineering with clear midrange and extended highs.
+            </p>
+            <div class="tab-images">
+                <div class="image-container">
+                <img src="https://furniture-ecommerce-store.netlify.app/images/outdoor-bar-table-and-stool-1.png" alt="Sofa Image 1">
+                </div>
+                <div class="image-container">
+                <img src="https://furniture-ecommerce-store.netlify.app/images/kent-coffee-table-1.png" alt="Sofa Image 2">
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="divider"></div>
+        
+   
+        <div class="related-products">
+        <h2>Related Products</h2>
+        <div class="product-list">
+            <div class="product-card">
+            <div class="product-image">
+                <img src="https://furniture-ecommerce-store.netlify.app/images/grain-coffee-table-1.png" alt="Syltherine">
+                <span class="discount-tag">-30%</span>
+            </div>
+            <div class="product-info">
+                <h3>Syltherine</h3>
+                <p>Stylish cafe chair</p>
+                <p class="price">2.500.000đ <span class="original-price">3.500.000đ</span></p>
+            </div>
+            </div>
+            <div class="product-card">
+            <div class="product-image">
+                <img src="https://furniture-ecommerce-store.netlify.app/images/kent-coffee-table-1.png" alt="Leviosa">
+            </div>
+            <div class="product-info">
+                <h3>Leviosa</h3>
+                <p>Stylish cafe chair</p>
+                <p class="price">2.500.000đ</p>
+            </div>
+            </div>
+            <div class="product-card">
+            <div class="product-image">
+                <img src="https://furniture-ecommerce-store.netlify.app/images/round-coffee-table-color-21.png" alt="Lolito">
+                <span class="discount-tag">-50%</span>
+            </div>
+            <div class="product-info">
+                <h3>Lolito</h3>
+                <p>Luxury big sofa</p>
+                <p class="price">7.000.000đ <span class="original-price">14.000.000đ</span></p>
+            </div>
+            </div>
+            <div class="product-card">
+            <div class="product-image">
+                <img src="https://furniture-ecommerce-store.netlify.app/images/reclaimed-teak-coffee-table-1.png" alt="Respira">
+                <span class="new-tag">New</span>
+            </div>
+            <div class="product-info">
+                <h3>Respira</h3>
+                <p>Outdoor bar table and stool</p>
+                <p class="price">5.000.000đ</p>
+            </div>
+            </div>
+        </div>
+        <button class="show-more">Show More</button>
+        </div>
+    </div>
+    <div class="divider"></div>
+    
+
+    <div class="footer-bottom">
+        <div class="footer-section">
+        <h3>Funiro.</h3>
+        <address>
+            400 University Drive Suite 200 Coral Gables,<br>
+            FL 33134 USA
+        </address>
+        </div>
+        <div class="footer-section">
+        <h3>Links</h3>
+        <ul>
+            <li>Home</li>
+            <li>Shop</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+        </div>
+        <div class="footer-section">
+        <h3>Help</h3>
+        <ul>
+            <li>Payment Options</li>
+            <li>Returns</li>
+            <li>Privacy Policies</li>
+        </ul>
+        </div>
+        <div class="footer-section newsletter">
+        <h3>Newsletter</h3>
+        <input type="email" placeholder="Enter Your Email Address">
+        <button>SUBSCRIBE</button>
+        </div>
+        <div class="footer-info">
+        2023 Funiro. All rights reserved
+        </div>
+    </div>
+
+ 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+ 
+        const mainImage = document.querySelector(".main-image");
+        const thumbnails = document.querySelectorAll(".product-thumbnails img");
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener("click", function() {
+            mainImage.classList.add("fade-out");
+            setTimeout(() => {
+                mainImage.src = this.src;
+                mainImage.classList.remove("fade-out");
+            }, 500);
+            });
+        });
+        
+        
+        const quantitySelectors = document.querySelectorAll(".quantity-selector");
+        quantitySelectors.forEach(selector => {
+            const minusBtn = selector.querySelector("button.minus");
+            const plusBtn = selector.querySelector("button.plus");
+            const quantityDisplay = selector.querySelector("span.quantity");
+            let quantity = parseInt(quantityDisplay.textContent);
+
+            minusBtn.addEventListener("click", function() {
+            if (quantity > 1) {
+                quantity--;
+                quantityDisplay.textContent = quantity;
+                quantityDisplay.classList.add("changed");
+                setTimeout(() => quantityDisplay.classList.remove("changed"), 300);
+            }
+            });
+            plusBtn.addEventListener("click", function() {
+            quantity++;
+            quantityDisplay.textContent = quantity;
+            quantityDisplay.classList.add("changed");
+            setTimeout(() => quantityDisplay.classList.remove("changed"), 300);
+            });
+        });
+
+        
+        const sizeOptions = document.querySelectorAll(".size-options span");
+        sizeOptions.forEach(option => {
+            option.addEventListener("click", function() {
+            sizeOptions.forEach(opt => opt.classList.remove("selected"));
+            this.classList.add("selected");
+            console.log("Size selected:", this.getAttribute("data-size"));
+            });
+        });
+
+       
+        const colorOptions = document.querySelectorAll(".color-options .color-option");
+        colorOptions.forEach(option => {
+            option.addEventListener("click", function() {
+            colorOptions.forEach(opt => opt.classList.remove("selected"));
+            this.classList.add("selected");
+            console.log("Color selected:", this.getAttribute("data-color"));
+            });
+        });
+        });
+        const tabs = document.querySelectorAll('.tab');
+    const tabContent = document.querySelector('.tab-content');
+
+    const contentData = [
+        `
+        <p>
+            Embodying the raw, wayward spirit of rock ‘n’ roll, the Kilburn portable active stereo speaker takes the unmistakable look and sound of Marshall.
+        </p>
+        <p>
+            Weighing in under 7 pounds, the Kilburn is a lightweight piece of vintage styled engineering with clear midrange and extended highs.
+        </p>
+        <div class="tab-images">
+            <div class="image-container">
+                <img src="https://furniture-ecommerce-store.netlify.app/images/outdoor-bar-table-and-stool-1.png" alt="Sofa Image 1">
+            </div>
+            <div class="image-container">
+                <img src="https://furniture-ecommerce-store.netlify.app/images/kent-coffee-table-1.png" alt="Sofa Image 2">
+            </div>
+        </div>
+        `,
+        `
+        <ul>
+            <li>Color: Black</li>
+            <li>Weight: 6.6 lbs</li>
+            <li>Connectivity: Bluetooth 5.0</li>
+            <li>Battery Life: Up to 20 hours</li>
+        </ul>
+        `,
+        `
+        <h4>Customer Reviews (5)</h4>
+        <ul>
+            <li>⭐️⭐️⭐️⭐️⭐️ Great sound quality!</li>
+            <li>⭐️⭐️⭐️⭐️ Beautiful design, good battery life.</li>
+            <li>⭐️⭐️⭐️ Good, but a bit heavy for my use.</li>
+            <li>⭐️⭐️⭐️⭐️ Nice vintage look!</li>
+            <li>⭐️⭐️⭐️⭐️⭐️ Love it! Worth every penny.</li>
+        </ul>
+        `
+    ];
+
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            tabContent.innerHTML = contentData[index];
+        });
+    });
+    </script>
+    </body>
+    </html>
