@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .heart-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 8s linear infinite;
+      opacity: 0.7;
+    }
+    .heart::before, .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    .container {
+      text-align: center;
+      z-index: 10;
+    }
+    h1 {
+      font-size: 3em;
+      color: #fff;
+      font-family: 'Sacramento', cursive;
+    }
+    .buttons {
+      margin-top: 30px;
+    }
+    .yes-button, .no-button {
+      font-size: 1.5em;
+      padding: 10px 25px;
+      margin: 0 10px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .yes-button {
+      background-color: #ff4081;
+      color: white;
+    }
+    .no-button {
+      background-color: #e91e63;
+      color: white;
+    }
+    .yes-button:hover {
+      background: #e91e63;
+      transform: scale(1.1);
+    }
+    .no-button:hover {
+      background: #c2185b;
+      transform: scale(1.1);
+    }
+    .gif_container img {
+      width: 250px;
+      margin-top: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="heart-bg" id="hearts"></div>
+  <div class="container" id="main">
+    <h1>Thứ 7 lên chơi nhá mom :)))) </h1>
+    <div class="buttons">
+      <button class="yes-button" onclick="handleYesClick()">Có </button>
+      <button class="no-button" onclick="handleNoClick()">Không </button>
+    </div>
+    <div class="">
+      <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5lenZyZHI5OXM2eW95b3pmMG40cWVrMDhtNjVuM3A4dGNxa2g2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VM1fcpu2bKs1e2Kdbj/giphy.gif" alt="cute gif">
+    </div>
+  </div>
+
+  <script>
+    const messages = [
+      "Em chắc chưa?",
+      "Em thực sự chắc chứ??",
+      "Em khum đồng ý được à?",
+      "Đồng ý đi maàa...",
+      "Em suy nghĩ lại đi!",
+      "Em mà chọn Không, thì anh rất buồn đấy...",
+      "Anh sẽ rất buồn đấy...",
+      "Anh sẽ rất rất buồn đấyyyyyy...",
+      "Ok fine, anh không hỏi em nữa...",
+      "Anh đùa thui, làm ơn chọn Có đi mà, anh năn nỉ! ❤️"
+    ];
+
+    let messageIndex = 0;
+
+    function handleNoClick() {
+      const noButton = document.querySelector('.no-button');
+      const yesButton = document.querySelector('.yes-button');
+      noButton.textContent = messages[messageIndex];
+      messageIndex = (messageIndex + 1) % messages.length;
+      const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+      yesButton.style.fontSize = `${currentSize * 1.2}px`;
+    }
+
+    function handleYesClick() {
+      document.getElementById('main').innerHTML = `
+        <h1 class="header_text">Anh biết là em sẽ nói Có màaaa! 💘</h1>
+        <div class="">
+          <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmo3c3l5ODh3ZGN6NHhhaDE2Mjg1ZjkwOXczdDFxbWM3dTBtaW9zaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9XY4f3FgFTT4QlaYqa/giphy.gif">
+        </div>
+      `;
+    }
+
+    // heart effect
+    const heartContainer = document.getElementById('hearts');
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+      heart.style.background = `hsl(${Math.random() * 360}, 100%, 70%)`;
+      heartContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 8000);
+    }
+    setInterval(createHeart, 400);
+  </script>
+</body>
+</html>
